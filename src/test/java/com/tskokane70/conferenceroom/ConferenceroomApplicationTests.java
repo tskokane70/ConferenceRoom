@@ -1,9 +1,9 @@
 package com.tskokane70.conferenceroom;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+// @SpringBootTest
 class ConferenceroomApplicationTests {
 
 	@Test
