@@ -1,40 +1,36 @@
 package com.tskokane70.conferenceroom.Entities;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-public class ConferenceRoomRegister {
+public class ConferenceRoomRegister extends BaseEntity {
     private ConferenceRoom conferenceRoom;
-    private Map<TimeSlot, Employee> timeslotEmployeeMap;
+    private Employee employee;
+    private Integer startTime;
+    private Integer endTime;    
 
-    public ConferenceRoomRegister(ConferenceRoom conferenceRoom, Map<TimeSlot, Employee> timeslotEmployeeMap){
-        this(conferenceRoom);
-        this.timeslotEmployeeMap = timeslotEmployeeMap;
-    }
 
-    public ConferenceRoomRegister(ConferenceRoom conferenceRoom) {
+
+    public ConferenceRoomRegister(String id, ConferenceRoom conferenceRoom, Employee employee,
+            Integer startTime, Integer endTime) {
+        this.id = id;
         this.conferenceRoom = conferenceRoom;
-        this.timeslotEmployeeMap = new HashMap<>();
+        this.employee = employee;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public ConferenceRoom getConferenceRoom() {
         return conferenceRoom;
     }
 
-    public List<TimeSlot> getOccupiedTimeSlots() {
-        return this.timeslotEmployeeMap.keySet().stream().collect(Collectors.toList());
-    }
-    
-    public List<TimeSlot> getEmployeeBookedTimeSlots(Employee employee){
-        return this.timeslotEmployeeMap.keySet()
-                .stream()
-                .filter(timeSlot -> timeslotEmployeeMap.get(timeSlot).equals(employee))
-                .collect(Collectors.toList());
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void bookTimeSlot(TimeSlot timeSlot, Employee employee) {
-        this.timeslotEmployeeMap.put(timeSlot, employee);
+    public Integer getStartTime() {
+        return startTime;
     }
+
+    public Integer getEndTime() {
+        return endTime;
+    }
+
 }

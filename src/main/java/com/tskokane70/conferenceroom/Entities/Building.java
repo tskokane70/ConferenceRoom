@@ -1,7 +1,6 @@
 package com.tskokane70.conferenceroom.Entities;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Building extends BaseEntity {
     private List<Floor> floorsList;
@@ -20,16 +19,16 @@ public class Building extends BaseEntity {
     }
 
     public List<Floor> getFloorsList() {
-        return this.floorsList.stream().collect(Collectors.toList());
+        return this.floorsList;
     }
 
     public List<Floor> addFloor(Floor floor){
         this.floorsList.add(floor);
-        return this.floorsList.stream().collect(Collectors.toList());
+        return this.floorsList;
     }
 
     public List<Floor> deleteFloor(Floor floor){
         this.floorsList.remove(floor);
-        return this.floorsList.stream().collect(Collectors.toList());
+        return this.floorsList;
     }
 }
